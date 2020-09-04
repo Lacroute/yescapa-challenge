@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import { SEARCH_BY_SOMETHING, POPULATE_SEARCH_RESULTS } from '@/store/config'
-// import { POPULATE_SEARCH_RESULTS } from '@/store/config'
-import { searchBySomething } from '@/api'
+/* eslint-disable */
+import { SELECTED_VEHICULE } from '@/store/config'
+import { SEARCH_BY_SOMETHING, GET_VEHICULE_BY_ID } from '@/store/config'
+import { POPULATE_SEARCH_RESULTS } from '@/store/config'
+/* eslint-enable */
+
+import { searchBySomething, getVehiculeById } from '@/api'
 
 Vue.use(Vuex)
 
@@ -16,18 +20,30 @@ const store = new Vuex.Store({
   },
 
   getters: {
+    [SELECTED_VEHICULE] (state) {
+      const id = +state.route.params.id
+      return id !== undefined ? state.results.find(r => r.id === id) || null : null
+    }
   },
 
   actions: {
     async [SEARCH_BY_SOMETHING] ({ commit }) {
-      console.log(SEARCH_BY_SOMETHING)
       const results = await searchBySomething()
       commit(POPULATE_SEARCH_RESULTS, results)
+    },
+
+    async [GET_VEHICULE_BY_ID] ({ state, commit }) {
+      const result = await getVehiculeById(+state.route.params.id)
+      commit(POPULATE_SEARCH_RESULTS, result)
     }
   },
 
   mutations: {
     [POPULATE_SEARCH_RESULTS] (state, payload) {
+      // If we return just one element, let's keep the array structure
+      if (!Array.isArray(payload)) {
+        payload = [payload]
+      }
       state.results = payload
     }
   },
