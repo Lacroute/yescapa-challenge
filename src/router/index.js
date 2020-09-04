@@ -9,6 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Index',
       redirect: { name: 'Search' }
     },
     {
