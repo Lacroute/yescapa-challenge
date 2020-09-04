@@ -1,30 +1,30 @@
 <template lang="html">
   <div class="vehicule" v-if="vehicule">
     <h1>{{ vehicule.title }}</h1>
-    <p>À partir de {{ vehicule.starting_price }} {{ vehicule.currency_used }}</p>
+    <p>{{ $t('startingPrice') }} {{ $n(vehicule.starting_price, 'currency') }}</p>
     <div class="vehicule-data">
       <div class="vehicule-type">
-        <span>Type</span>
+        <span>{{ $t('vehiculeData.type') }}</span>
         <span>{{ vehicule.vehicle_type }}</span>
       </div>
 
       <div class="vehicule-seats">
-        <span>Sièges</span>
+        <span>{{ $tc('vehiculeData.seats', vehicule.vehicle_seats) }}</span>
         <span>{{ vehicule.vehicle_seats }}</span>
       </div>
 
       <div class="vehicule-beds">
-        <span>Couchages</span>
+        <span>{{ $tc('vehiculeData.beds', vehicule.vehicle_beds) }}</span>
         <span>{{ vehicule.vehicle_beds }}</span>
       </div>
 
       <div class="vehicule-location">
-        <span>Disponible à</span>
+        <span>{{ $t('vehiculeData.location') }}</span>
         <span>{{ vehicule.vehicle_location_city }} ({{ vehicule.vehicle_location_zipcode }})</span>
       </div>
 
       <div class="vehicule-review">
-        <span>{{ vehicule.review_count }} Avis</span>
+        <span>{{ vehicule.review_count }} {{ $tc('vehiculeData.review', vehicule.review_count) }}</span>
         <span>{{ vehicule.review_average }}/5</span>
       </div>
     </div>

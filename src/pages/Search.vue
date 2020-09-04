@@ -1,6 +1,6 @@
 <template lang="html">
   <section>
-    <h1>Search</h1>
+    <h1>{{ $t('searchResults') }}</h1>
     <div class="results">
       <vehicule-preview
         v-for="v in results"
