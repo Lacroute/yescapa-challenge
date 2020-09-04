@@ -8,6 +8,10 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: { name: 'Search' }
+    },
+    {
+      path: '/search',
       name: 'Search',
       component: Search
     }

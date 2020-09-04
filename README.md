@@ -1,5 +1,7 @@
 # yescapa-challenge
 
+Important: use https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf/related plugin to enable CORS
+
 > A Vue.js project
 
 ## Build Setup
