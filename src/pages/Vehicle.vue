@@ -2,7 +2,10 @@
   <section class="page-vehicle" v-if="vehicle">
     <header>
       <div class="wrapper-text">
-        <h1>{{ vehicle.title }}</h1>
+        <div class="breadcrumb">
+          <h3><a @click.prevent="$router.go(-1)">Recherche</a></h3>
+          <h1>{{ vehicle.title }}</h1>
+        </div>
         <p>{{ $t('shortDescription', [$t(vehicle.vehicle_type).toLowerCase(), $n(vehicle.starting_price, 'currency')]) }}</p>
       </div>
       <div class="wrapper-actions">
@@ -85,6 +88,21 @@ export default {
   header{
     display: flex;
     justify-content: space-between;
+
+    .breadcrumb *{
+      display: inline-block;
+
+      & + *{
+        margin-left: $space_unit;
+
+        &:before{
+          content: '>';
+          font-size: 22px;
+          display: inline-block;
+          margin-right: $space_unit;
+        }
+      }
+    }
 
     .wrapper-actions{
       margin-top: 2* $space_unit

@@ -2,7 +2,9 @@
   <div id="app">
     <app-header/>
     <section class="wrapper">
-      <router-view/>
+      <transition :name="transitionName" mode="out-in">
+        <router-view/>
+      </transition>
     </section>
     <app-footer/>
   </div>
@@ -18,6 +20,20 @@ export default {
   components: {
     AppHeader,
     AppFooter
+  },
+
+  data () {
+    return {
+      transitionName: ''
+    }
+  },
+
+  watch: {
+    '$route' (to, from) {
+      const toDepth = to.path.split('/').length
+      const fromDepth = from.path.split('/').length
+      this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+    }
   }
 }
 </script>

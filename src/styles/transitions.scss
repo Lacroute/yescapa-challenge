@@ -1,0 +1,25 @@
+.slide-right-enter-active {
+  transition: all 500ms;
+}
+.slide-right-leave-active {
+  transition: all 350ms;
+}
+.slide-right-enter{
+  transform: translateX(-30px);
+}
+.slide-right-leave-to{
+  transform: translateX(30px);
+}
+
+.slide-left-enter-active {
+  transition: all 1000ms ease;
+}
+.slide-left-leave-active {
+  transition: all 500ms ease;
+}
+.slide-left-enter{
+  transform: translateX(30px);
+}
+.slide-left-leave-to{
+  transform: translateX(-30px);
+}
