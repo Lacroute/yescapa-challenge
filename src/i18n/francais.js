@@ -12,6 +12,6 @@ export default {
   otherVehicle: 'Voir ses autres véhicules',
   CoachBuilt: 'Camping-car profilé',
   Van: 'Van',
-  CamperVan: 'Van aménagé',
+  Campervan: 'Van aménagé',
   AClass: 'Camping-car intégral'
 }

@@ -8,8 +8,8 @@
         class="small-preview"></div>
         <div class="wrapper-title">
           <div class="center-title">
+            <h3>{{ $t(vehicleType) }}</h3>
             <h2>{{ title }}</h2>
-            <h3>{{ vehicleType }}</h3>
           </div>
         </div>
     </router-link>
@@ -68,6 +68,7 @@ export default {
 .vehicle-preview{
   border-radius: 2px;
   transition: background 750ms ease;
+  position: relative;
 
   & + .vehicle-preview{
     margin-top: $space_unit
@@ -75,7 +76,7 @@ export default {
 
    &:hover{
      .wrapper-title{
-       margin: 0px 0px 0px -140px;
+       left: 30px;
      }
    }
 
@@ -94,7 +95,7 @@ export default {
     background-position: center;
     background-size: cover;
     height: 160px;
-    width: 320px;
+    width: 280px;
 
     &:before{
       content: ' ';
@@ -105,9 +106,11 @@ export default {
   }
 
   .wrapper-title{
-    margin: 0px 0px 0px -80px;
+    position: absolute;
+    left: 60px;
+    top: 25px;
     z-index: 1;
-    transition: margin 250ms ease;
+    transition: left 250ms ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -116,16 +119,62 @@ export default {
       background: white;
       display: table;
       padding: 0.15em 0.30em;
+      margin: 0 $space_unit 0 0;
     }
 
     h2{
-      margin: 0;
-      font-size: 3em;
-      border-radius: 2px 2px 2px 0;
+      font-size: 1.75em;
+      border-radius: 0px 2px 2px 2px;
     }
     h3{
-      border-radius: 0 0 2px 2px;
+      border-radius: 2px 2px 0 0;
     }
+  }
+
+  @media #{$small-device}{
+    &:hover{
+      .wrapper-title{
+      left: 60px;
+      }
+    }
+
+    .small-preview{
+      width: 360px;
+      height: 190px;
+    }
+    .wrapper-title{
+      left: 140px;
+
+      h2{
+        font-size: 2em;
+      }
+    }
+  }
+
+  @media #{$medium-device}{
+    &:hover{
+      .wrapper-title{
+      left: 260px;
+      }
+    }
+
+    .small-preview{
+      width: 360px;
+      height: 190px;
+    }
+    .wrapper-title{
+      top: 50%;
+      transform: translateY(-50%);
+      left: 300px;
+
+      h2{
+        font-size: 2.5em;
+      }
+    }
+  }
+
+  @media #{$medium-device}{
+
   }
 }
 </style>
