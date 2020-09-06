@@ -7,7 +7,7 @@ import { SEARCH_BY_SOMETHING, GET_VEHICULE_BY_ID } from '@/store/config'
 import { POPULATE_SEARCH_RESULTS } from '@/store/config'
 /* eslint-enable */
 
-import { searchBySomething, getVehiculeById } from '@/api'
+import { searchBySomething, getVehicleById } from '@/api'
 
 Vue.use(Vuex)
 
@@ -33,7 +33,7 @@ const store = new Vuex.Store({
     },
 
     async [GET_VEHICULE_BY_ID] ({ state, commit }) {
-      const result = await getVehiculeById(+state.route.params.id)
+      const result = await getVehicleById(+state.route.params.id)
       commit(POPULATE_SEARCH_RESULTS, result)
     }
   },

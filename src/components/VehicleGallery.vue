@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="vehicule-gallery">
+  <div class="vehicle-gallery">
     <img
       v-for="p in pictures"
       :key="p.id"
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'VehiculeGallery',
+  name: 'VehicleGallery',
 
   props: {
     pictures: {
@@ -20,14 +20,17 @@ export default {
 }
 </script>
 
-<style lang="css">
-.vehicule-gallery{
+<style lang="scss">
+.vehicle-gallery{
   display: flex;
   width: 100%;
   height: 400px;
   overflow-x: auto;
-}
-.vehicule-gallery img + img{
-  margin-left: 12px;
+  border-radius: 2px 2px 0px 0px;
+  background: $light_grey;
+
+  img + img{
+    margin-left: 12px;
+  }
 }
 </style>

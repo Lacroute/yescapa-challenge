@@ -1,7 +1,7 @@
 export default {
   searchResults: 'No results | 1 result | {n} results',
   startingPrice: 'From',
-  vehiculeData: {
+  vehicleData: {
     type: 'Type',
     seats: 'Seat | Seats',
     beds: 'Bed | Beds',

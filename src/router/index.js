@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Search from '@/pages/Search'
-import Vehicule from '@/pages/Vehicule'
+import Vehicle from '@/pages/Vehicle'
 
 Vue.use(Router)
 
@@ -18,9 +18,9 @@ export default new Router({
       component: Search
     },
     {
-      path: '/vehicule/:id',
-      name: 'Vehicule',
-      component: Vehicule
+      path: '/vehicle/:id',
+      name: 'Vehicle',
+      component: Vehicle
     }
   ]
 })

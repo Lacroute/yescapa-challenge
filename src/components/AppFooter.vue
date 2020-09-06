@@ -1,6 +1,6 @@
 <template lang="html">
   <footer>
-    <p>A yescapa challenge</p>
+    <p>A Yescapa challenge</p>
   </footer>
 </template>
 

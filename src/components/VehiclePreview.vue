@@ -1,13 +1,16 @@
 <template lang="html">
   <section
     :style="{background: bgColorProperty}"
-    class="vehicule-preview">
-    <router-link :to="{ name: 'Vehicule', params: { id: id }}">
+    class="vehicle-preview">
+    <router-link :to="{ name: 'Vehicle', params: { id: id }}">
       <div
         :style="{ backgroundImage: `url(${imgUrl})` }"
         class="small-preview"></div>
         <div class="wrapper-title">
-          <h2>{{ title }}</h2>
+          <div class="center-title">
+            <h2>{{ title }}</h2>
+            <h3>{{ vehicleType }}</h3>
+          </div>
         </div>
     </router-link>
   </section>
@@ -17,7 +20,7 @@
 import ColorThief from 'colorthief'
 
 export default {
-  name: 'VehiculePreview',
+  name: 'VehiclePreview',
 
   data () {
     return {
@@ -43,7 +46,8 @@ export default {
     imgUrl: {
       type: String,
       required: true
-    }
+    },
+    vehicleType: String
   },
 
   mounted () {
@@ -61,10 +65,11 @@ export default {
 </script>
 
 <style lang="scss">
-.vehicule-preview{
+.vehicle-preview{
   border-radius: 2px;
+  transition: background 750ms ease;
 
-  & + .vehicule-preview{
+  & + .vehicle-preview{
     margin-top: $space_unit
   }
 
@@ -102,17 +107,24 @@ export default {
   .wrapper-title{
     margin: 0px 0px 0px -80px;
     z-index: 1;
+    transition: margin 250ms ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: margin 250ms ease;
+
+    h2, h3{
+      background: white;
+      display: table;
+      padding: 0.15em 0.30em;
+    }
 
     h2{
       margin: 0;
       font-size: 3em;
-      background: white;
-      padding: 0.15em 0.30em;
-      border-radius: 2px;
+      border-radius: 2px 2px 2px 0;
+    }
+    h3{
+      border-radius: 0 0 2px 2px;
     }
   }
 }

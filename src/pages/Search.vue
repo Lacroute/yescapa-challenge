@@ -2,11 +2,12 @@
   <section class="page-search">
     <h1>{{ $tc('searchResults', results.length) }}</h1>
     <div class="results">
-      <vehicule-preview
+      <vehicle-preview
         v-for="v in results"
         :key="v.id"
-        :title="v.title"
         :id="v.id"
+        :title="v.title"
+        :vehicle-type="v.vehicle_type"
         :img-url="v.pictures[0].url"/>
     </div>
   </section>
@@ -15,12 +16,12 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import { SEARCH_BY_SOMETHING } from '@/store/config'
-import VehiculePreview from '@/components/VehiculePreview'
+import VehiclePreview from '@/components/VehiclePreview'
 
 export default {
 
   components: {
-    VehiculePreview
+    VehiclePreview
   },
 
   data () {
@@ -45,5 +46,7 @@ export default {
 
 <style lang="scss">
 .page-search{
+  max-width: 1280px;
+  margin: auto;
 }
 </style>

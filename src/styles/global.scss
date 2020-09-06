@@ -2,11 +2,16 @@
 $headlineFont: 'Roboto Condensed', sans-serif;
 $textFont: 'Roboto Slab', sans-serif;
 $space_unit: 12px;
-$main_color: #111111;
+$main_background: #ffffff;
+$main_color: #262626;
+$link_color: #ee8540;
+$button_color: #ff973e;
+$light_grey: #F2F2F2;
 
 html, body{
-  color: $main_color;
   font-family: $textFont;
+  color: $main_color;
+  background: $main_background;
 }
 
 h1, h2, h3{
@@ -14,9 +19,32 @@ h1, h2, h3{
 }
 h1{
   font-size: 1.75em;
-  margin: 2 * $space_unit 0 3 * $space_unit;
+  margin: 2 * $space_unit 0 2.5 * $space_unit;
 }
 h2{
   font-size: 1.25em;
   margin: $space_unit 0 2 * $space_unit;
+}
+p{
+  margin: $space_unit 0 1.5 * $space_unit;
+}
+a, a:visited, a:focus{
+  color: $link_color;
+  text-decoration: none;
+}
+button{
+  background:  $button_color;
+  color: $main_background;
+  border: 1px solid darken($button_color, 7%);
+  border-radius: 6px;
+  padding: $space_unit 2 * $space_unit;
+  cursor: pointer;
+  transition: all 75ms ease;
+  font-size: 1em;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+
+  &:hover{
+    background:  $main_background;
+    color: $button_color;
+  }
 }

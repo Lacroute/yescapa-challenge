@@ -24,6 +24,8 @@ export default {
 
 <style lang="scss">
 .wrapper{
-  padding: 0 $space_unit
+  padding: 0 $space_unit;
+  max-width: 1280px;
+  margin: auto;
 }
 </style>
