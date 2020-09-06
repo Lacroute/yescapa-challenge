@@ -6,7 +6,7 @@ export default {
   },
   'en': {
     currency: {
-      style: 'currency', currency: 'JPY', currencyDisplay: 'symbol'
+      style: 'currency', currency: 'EUR'
     }
   }
 }

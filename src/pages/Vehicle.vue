@@ -3,13 +3,13 @@
     <header>
       <div class="wrapper-text">
         <div class="breadcrumb">
-          <h3><a @click.prevent="$router.go(-1)">Recherche</a></h3>
+          <h3><a @click.prevent="$router.go(-1)">{{ $t('search') }}</a></h3>
           <h1>{{ vehicle.title }}</h1>
         </div>
         <p>{{ $t('shortDescription', [$t(vehicle.vehicle_type).toLowerCase(), $n(vehicle.starting_price, 'currency')]) }}</p>
       </div>
       <div class="wrapper-actions">
-        <button type="button" name="button">Louer !</button>
+        <button type="button" name="button">{{ $t('rent') }}</button>
       </div>
     </header>
 
