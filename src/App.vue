@@ -24,7 +24,7 @@ export default {
 
   data () {
     return {
-      transitionName: ''
+      transitionName: 'slide-right'
     }
   },
 

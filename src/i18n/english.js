@@ -14,5 +14,7 @@ export default {
   Campervan: 'Campervan',
   AClass: 'A-Class motor home',
   search: 'Search',
-  rent: 'Rent it !'
+  rent: 'Rent it !',
+  corsInstruction: 'Please find a navigator plugin to enable CORS for the json data request.',
+  pluginList: 'Some available plugins:'
 }

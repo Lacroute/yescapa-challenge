@@ -1,4 +1,5 @@
 module.exports = {
+  publicPath: "/yescapa-challenge",
   outputDir: "docs",
   css: {
     loaderOptions: {

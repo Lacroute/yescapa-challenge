@@ -16,7 +16,6 @@ const searchBySomething = async () => {
   return axios
     .get(SEARCH_RESULT_API, config)
     .then(response => response.data.results)
-    .catch(error => console.log(error))
 }
 
 // Mock the result of getting a vehicle by id from the API
@@ -24,7 +23,6 @@ const getVehicleById = async (id) => {
   return axios
     .get(SEARCH_RESULT_API, config)
     .then(response => response.data.results.find(r => r.id === id))
-    .catch(error => console.log(error))
 }
 
 export { searchBySomething, getVehicleById }
