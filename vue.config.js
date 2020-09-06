@@ -1,4 +1,6 @@
 module.exports = {
+  publicPath: "/serve-it",
+  outputDir: "docs",
   css: {
     loaderOptions: {
       scss: {
