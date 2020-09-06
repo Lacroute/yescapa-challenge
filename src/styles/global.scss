@@ -1,7 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Noto+Sans&display=swap');
-$headlineFont: 'Fjalla One', sans-serif;
-$textFont: 'Noto Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto+Slab:wght@300&display=swap');
+$headlineFont: 'Roboto Condensed', sans-serif;
+$textFont: 'Roboto Slab', sans-serif;
 $space_unit: 12px;
+$main_color: #111111;
+
+html, body{
+  color: $main_color;
+  font-family: $textFont;
+}
 
 h1, h2, h3{
   font-family: $headlineFont;

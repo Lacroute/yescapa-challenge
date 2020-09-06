@@ -1,5 +1,5 @@
 export default {
-  searchResults: 'Résultats de la recherche',
+  searchResults: 'Aucun résultat pour votre recherche | 1 résultat pour votre recherche | {n} résultats de votre recherche',
   startingPrice: 'À partir de',
   vehiculeData: {
     type: 'Type',

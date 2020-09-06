@@ -1,12 +1,13 @@
 <template lang="html">
   <section class="page-search">
-    <h1>{{ $t('searchResults') }}</h1>
+    <h1>{{ $tc('searchResults', results.length) }}</h1>
     <div class="results">
       <vehicule-preview
         v-for="v in results"
         :key="v.id"
         :title="v.title"
-        :id="v.id"/>
+        :id="v.id"
+        :img-url="v.pictures[0].url"/>
     </div>
   </section>
 </template>

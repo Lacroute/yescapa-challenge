@@ -4,17 +4,20 @@
     <section class="wrapper">
       <router-view/>
     </section>
+    <app-footer/>
   </div>
 </template>
 
 <script>
 import AppHeader from '@/components/AppHeader'
+import AppFooter from '@/components/AppFooter'
 
 export default {
   name: 'App',
 
   components: {
-    AppHeader
+    AppHeader,
+    AppFooter
   }
 }
 </script>
