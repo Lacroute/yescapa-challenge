@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Search from '@/pages/Search'
 import Vehicle from '@/pages/Vehicle'
+import CorsBug from '@/pages/CorsBug'
+
 import i18n from '@/i18n'
 
 Vue.use(Router)
@@ -22,6 +24,11 @@ const router = new Router({
       path: '/vehicle/:id',
       name: 'Vehicle',
       component: Vehicle
+    },
+    {
+      path: '/cors',
+      name: 'CorsBug',
+      component: CorsBug
     }
   ]
 })

@@ -1,13 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Router from 'vue-router'
 
 /* eslint-disable */
 import { SELECTED_VEHICULE } from '@/store/config'
 import { SEARCH_BY_SOMETHING, GET_VEHICULE_BY_ID } from '@/store/config'
-import { POPULATE_SEARCH_RESULTS } from '@/store/config'
+import { POPULATE_SEARCH_RESULTS, CORS_BUG } from '@/store/config'
 /* eslint-enable */
 
 import { searchBySomething, getVehicleById } from '@/api'
+
+// just for Cors bug issue
+import router from '@/router'
+const { isNavigationFailure, NavigationFailureType } = Router
 
 Vue.use(Vuex)
 
@@ -16,7 +21,8 @@ const debug = process.env.NODE_ENV !== 'production'
 const store = new Vuex.Store({
 
   state: {
-    results: []
+    results: [],
+    corsBug: false
   },
 
   getters: {
@@ -28,12 +34,36 @@ const store = new Vuex.Store({
 
   actions: {
     async [SEARCH_BY_SOMETHING] ({ commit }) {
-      const results = await searchBySomething()
+      let results
+      try {
+        results = await searchBySomething()
+      } catch (e) {
+          router
+            .push({ name: 'CorsBug' })
+            .catch(failure => {
+              if (isNavigationFailure(failure, NavigationFailureType.redirected)) {
+                failure.to.path
+                failure.from.path
+              }
+          })
+      }
       commit(POPULATE_SEARCH_RESULTS, results)
     },
 
     async [GET_VEHICULE_BY_ID] ({ state, commit }) {
-      const result = await getVehicleById(+state.route.params.id)
+      let result
+      try {
+        result = await getVehicleById(+state.route.params.id)
+      } catch (e) {
+          router
+            .push({ name: 'CorsBug' })
+            .catch(failure => {
+              if (isNavigationFailure(failure, NavigationFailureType.redirected)) {
+                failure.to.path
+                failure.from.path
+              }
+          })
+      }
       commit(POPULATE_SEARCH_RESULTS, result)
     }
   },
@@ -45,6 +75,10 @@ const store = new Vuex.Store({
         payload = [payload]
       }
       state.results = payload
+    },
+
+    [CORS_BUG] (state, payload) {
+      state.corsBug = payload
     }
   },
 

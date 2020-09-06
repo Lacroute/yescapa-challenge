@@ -14,5 +14,7 @@ export default {
   Campervan: 'Van aménagé',
   AClass: 'Camping-car intégral',
   search: 'Recherche',
-  rent: 'Louer !'
+  rent: 'Louer !',
+  corsInstruction: 'Merci d\'installer un plugin qui autorise les CORS pour la requête sur le fichier json.',
+  pluginList: 'Exemple de plugins disponibles :'
 }
