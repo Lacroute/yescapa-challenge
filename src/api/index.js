@@ -12,7 +12,7 @@ const config = {
 }
 
 // Mock the POST request for searching some vehicules
-const searchBySomething = async (params) => {
+const searchBySomething = async () => {
   return axios
     .get(SEARCH_RESULT_API, config)
     .then(response => response.data.results)
