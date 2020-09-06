@@ -23,7 +23,7 @@ header.main-header{
     }
     a{
       width: 150px;
-      padding: 15px 0 15px 15px;
+      padding: $space_unit 0 $space_unit $space_unit;
       height: 100%;
     }
     svg{

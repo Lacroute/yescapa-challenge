@@ -1,5 +1,5 @@
 <template lang="html">
-  <section>
+  <section class="page-search">
     <h1>{{ $t('searchResults') }}</h1>
     <div class="results">
       <vehicule-preview
@@ -42,5 +42,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss">
+.page-search{
+}
 </style>

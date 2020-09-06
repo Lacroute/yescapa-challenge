@@ -8,8 +8,6 @@ import store from './store'
 import { sync } from 'vuex-router-sync'
 import i18n from './i18n'
 
-import 'reset.css'
-
 sync(store, router)
 
 Vue.config.productionTip = false

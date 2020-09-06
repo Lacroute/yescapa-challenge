@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <app-header/>
-    <router-view/>
+    <section class="wrapper">
+      <router-view/>
+    </section>
   </div>
 </template>
 
@@ -17,7 +19,8 @@ export default {
 }
 </script>
 
-<style>
-#app {
+<style lang="scss">
+.wrapper{
+  padding: 0 $space_unit
 }
 </style>

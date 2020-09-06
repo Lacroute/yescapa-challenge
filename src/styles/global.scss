@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Noto+Sans&display=swap');
+$headlineFont: 'Fjalla One', sans-serif;
+$textFont: 'Noto Sans', sans-serif;
+$space_unit: 12px;
+
+h1, h2, h3{
+  font-family: $headlineFont;
+}
+h1{
+  font-size: 1.75em;
+  margin: 2 * $space_unit 0 3 * $space_unit;
+}
+h2{
+  font-size: 1.25em;
+  margin: $space_unit 0 2 * $space_unit;
+}
