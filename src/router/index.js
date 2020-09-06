@@ -35,13 +35,12 @@ router.beforeEach((to, from, next) => {
   } else {
     // Otherwise, serve the desired language if it exists
     let target = availableLanguages.find(lang => lang === to.query.lang)
-    if (target !== undefined && target !== i18n.locale) {
-      i18n.locale = target
-    }else if (target === undefined){
+    if (target === undefined){
       next({path: to.path, query: { lang: i18n.locale }})
-    } else {
-      next()
+    } else if (target !== i18n.locale) {
+      i18n.locale = target
     }
+    next()
   }
 })
 
