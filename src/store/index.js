@@ -5,7 +5,7 @@ import Router from 'vue-router'
 /* eslint-disable */
 import { SELECTED_VEHICULE } from '@/store/config'
 import { SEARCH_BY_SOMETHING, GET_VEHICULE_BY_ID } from '@/store/config'
-import { POPULATE_SEARCH_RESULTS, CORS_BUG } from '@/store/config'
+import { POPULATE_SEARCH_RESULTS } from '@/store/config'
 /* eslint-enable */
 
 import { searchBySomething, getVehicleById } from '@/api'
@@ -38,14 +38,16 @@ const store = new Vuex.Store({
       try {
         results = await searchBySomething()
       } catch (e) {
-          router
-            .push({ name: 'CorsBug' })
-            .catch(failure => {
-              if (isNavigationFailure(failure, NavigationFailureType.redirected)) {
-                failure.to.path
-                failure.from.path
-              }
+        console.error(SEARCH_BY_SOMETHING, e)
+        router
+          .push({ name: 'CorsBug' })
+          .catch(failure => {
+            if (isNavigationFailure(failure, NavigationFailureType.redirected)) {
+              failure.to.path
+              failure.from.path
+            }
           })
+        return
       }
       commit(POPULATE_SEARCH_RESULTS, results)
     },
@@ -55,13 +57,14 @@ const store = new Vuex.Store({
       try {
         result = await getVehicleById(+state.route.params.id)
       } catch (e) {
-          router
-            .push({ name: 'CorsBug' })
-            .catch(failure => {
-              if (isNavigationFailure(failure, NavigationFailureType.redirected)) {
-                failure.to.path
-                failure.from.path
-              }
+        console.error(SEARCH_BY_SOMETHING, e)
+        router
+          .push({ name: 'CorsBug' })
+          .catch(failure => {
+            if (isNavigationFailure(failure, NavigationFailureType.redirected)) {
+              failure.to.path
+              failure.from.path
+            }
           })
       }
       commit(POPULATE_SEARCH_RESULTS, result)
@@ -71,14 +74,11 @@ const store = new Vuex.Store({
   mutations: {
     [POPULATE_SEARCH_RESULTS] (state, payload) {
       // If we return just one element, let's keep the array structure
-      if (!Array.isArray(payload)) {
+      if (!Array.isArray(payload) && payload !== undefined) {
         payload = [payload]
+      } else if (Array.isArray(payload)) {
+        state.results = payload
       }
-      state.results = payload
-    },
-
-    [CORS_BUG] (state, payload) {
-      state.corsBug = payload
     }
   },
 
